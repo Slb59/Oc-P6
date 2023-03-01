@@ -21,7 +21,7 @@ Un carroussel donne la possibilité de naviguer dans chacune des listes
 
 ## API OCMovies-API
 
-* Concernant l'installation de l'API, suivez les instructions données dnas le repository Guthub :
+* Concernant l'installation de l'API, suivez les instructions données dans le repository Guthub :
 [dépôt de OCMovies-API-EN-FR](https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR)
 * Puis lancez le serveur : pipenv run python manage.py runserver
 
