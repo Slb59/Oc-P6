@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <script src="main.js"></script>
     <title>JustStreamIt</title>
 </head>
 <body>
@@ -13,37 +14,37 @@
         <nav class="menu">
             <ul>
                 <li><a href="#the_best_movie">Accueil</a></li>
-                <li><a href="#categories">Catégories</a></li>
+                <li><a href="#category_adventure">Aventure</a></li>
+                <li><a href="#category_animation">Animation</a></li>
+                <li><a href="#category_biography">Biographie</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="the_best_movie" class="the_best_movie">
             <div class="best_movie_data">
-                <h2 class="best_movie_title">the best movie title</h2>
-                <h2 class="best_movie_summary">the best movie summary</h2>
-                <button class="play_btn">Lecture</button>
-                <button class="more_info_btn">plus d'infos</button>
+                <h2 id="best_movie_title" class="best_movie_title">the best movie title</h2>
+                <p id="best_movie_summary" class="best_movie_summary">the best movie summary</p>
+                <button class="play_btn">Plus d'infos</button>
             </div>
             <div class="best_movie_img">
-                <img src="assets/avatar.png"/>
+                <img id="best_movie_img" src="#" alt="Image du meilleur film"/>
             </div>
         </section>
         <section id="best_movies">
             <h2>Les films les mieux notés</h2>
         </section>
-        <!-- TODO: Choisir les catégories -->
         <section id="categories"></section>
-        <section id="category_1">
-            <h2>Meilleurs films de ???</h2>
+        <section id="category_adventure">
+            <h2>Meilleurs films d'aventure</h2>
             <!-- TODO: Afficher le carroussel -->
         </section>
-        <section id="category_2">
-            <h2>Meilleurs films de ???</h2>
+        <section id="category_animation">
+            <h2>Meilleurs films d'animation'</h2>
             <!-- TODO: Afficher le carroussel -->
         </section>
-        <section id="category_3">
-            <h2>Meilleurs films de ???</h2>
+        <section id="category_biography">
+            <h2>Meilleurs films de biographie</h2>
             <!-- TODO: Afficher le carroussel -->
         </section>
     </main>

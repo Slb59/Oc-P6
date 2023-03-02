@@ -3,15 +3,16 @@
     src: url('assets/Raleway-Light.ttf');
 }
 html {
-    background: rgb(139, 98, 81);    
+    background: rgb(125,59,32);
+    background: linear-gradient(150deg, rgba(125,59,32,1) 0%, rgba(204,125,77,1) 30%, rgba(232,242,31,1) 100%);
     font-family: 'Raleway-Light';
     color: rgb(10, 9, 8);
 }
 header {
-    background-color: #555253;
+    background-color:rgb(125,59,32);
     padding: 1em;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 4fr;
 }
 h1 {
     font-size: 2em;
@@ -19,7 +20,7 @@ h1 {
 }
 .menu ul {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-content: center;
 }
 .menu li {
@@ -37,20 +38,31 @@ h1 {
     grid-template-columns: 1fr 2fr;
     border: 0.3em solid black
 }
+.best_movie_data {
+    position: relative;
+}
 .best_movie_title {
     text-align: center;
 }
 .best_movie_summary {
     text-align: center;
 }
-.play_btn, .more_info_btn {
+.best_movie_img {
+    margin: 0 auto
+}
+.play_btn {
     background-color: rgb(182, 14, 14);
     color : rgb(233, 206, 206);
     width: 7em;
     border-radius: 1em;
     border: 1px solid;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
 footer {
+    background-color:rgb(125,59,32);
+    padding: 1em;
     position: relative;
     height: 100px;
 }
@@ -59,6 +71,12 @@ footer {
     height: 100px;
     left: 50%;
     transform: translate(-50%);
+}
+
+@media screen and (max-width: 730px) {
+    .menu ul {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 670px) {

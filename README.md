@@ -10,7 +10,7 @@ Développeur d'applications Python. Il s'agit de développer une application Web
 * une liste des 7 meilleurs films 
 * une liste des 7 meilleurs films de la catégorie Aventure
 * une liste des 7 meilleurs films de la catégorie Animation
-* une liste des 7 meilleurs films de la catégorie Biography
+* une liste des 7 meilleurs films de la catégorie Biographie
 
 Un carroussel donne la possibilité de naviguer dans chacune des listes
 
