@@ -1,0 +1,20 @@
+{
+  "name": "20230228-ocp6",
+  "version": "1.0.0",
+  "description": "JustStreamIt Web Application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./css/style.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slb59/Oc-P6.git"
+  },
+  "author": "Sylvie Bricout",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Slb59/Oc-P6/issues"
+  },
+  "homepage": "https://github.com/Slb59/Oc-P6#readme"
+}

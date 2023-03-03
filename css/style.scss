@@ -3,7 +3,7 @@
 @import "layouts/base";
 @import "layouts/header";
 @import "layouts/footer";
-@import "layouts/media";
+
 
 h1 {
     font-size: 2rem;
@@ -12,6 +12,9 @@ h1 {
 .menu ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media screen and (max-width: 730px) {
+        grid-template-columns: 1fr 
+    }
     align-content: center;
     li {
         display: inline;
@@ -26,9 +29,13 @@ h1 {
     }
 }
 
+
 .the_best_movie {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    @media screen and (max-width: 670px) {
+        display: block;
+    }
     border: 0.2rem solid $color-border;
     &__data {
         position: relative;
@@ -56,15 +63,4 @@ h1 {
 
 
 
-@media screen and (max-width: 730px) {
-    .menu ul {
-        display: block;
-    }
-}
-
-@media screen and (max-width: 670px) {
-    .the_best_movie {
-        display: block;
-    }    
-}
 
