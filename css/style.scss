@@ -1,0 +1,70 @@
+/*# sourceMappingURL=style.css.map */
+@import "utils/variables";
+@import "layouts/base";
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/media";
+
+h1 {
+    font-size: 2rem;
+    color: $color-font;
+}
+.menu ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-content: center;
+    li {
+        display: inline;
+        a {
+            font-size: 1.3rem;
+            color:$color-font;
+            &:hover {
+                color: $color-hover;
+            }
+        }
+        
+    }
+}
+
+.the_best_movie {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border: 0.2rem solid $color-border;
+    &__data {
+        position: relative;
+        &__title {
+            text-align: center;
+        }
+        &__summary {
+            text-align: center;
+        }
+        &__play_btn {
+            background-color: $color-btn-background;
+            color : $color-btn;
+            width: 7rem;
+            border-radius: 1rem;
+            border: 1px solid;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    }
+    &__img {
+        margin: 0 auto
+    }
+}
+
+
+
+@media screen and (max-width: 730px) {
+    .menu ul {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .the_best_movie {
+        display: block;
+    }    
+}
+

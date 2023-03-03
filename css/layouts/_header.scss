@@ -1,0 +1,7 @@
+header {
+    background-color: rgba($color-background,$block-transparency);
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin: 10px auto;
+}
