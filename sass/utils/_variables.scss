@@ -7,3 +7,11 @@ $color-hover: rgb(126, 134, 134);
 $color-border: rgba(0, 0, 0, 0.637);
 $color-btn-background: rgb(182, 14, 14);
 $color-btn: rgb(233, 206, 206);
+
+$fontsize-title: 2rem;
+$fontsize-menu: 1.3rem;
+
+$breakpoints: (
+    max-value-menu: 730px,
+    max-value-best: 670px
+);

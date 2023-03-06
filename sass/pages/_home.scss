@@ -1,39 +1,7 @@
-/*# sourceMappingURL=style.css.map */
-@import "utils/variables";
-@import "layouts/base";
-@import "layouts/header";
-@import "layouts/footer";
-
-
-h1 {
-    font-size: 2rem;
-    color: $color-font;
-}
-.menu ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    @media screen and (max-width: 730px) {
-        grid-template-columns: 1fr 
-    }
-    align-content: center;
-    li {
-        display: inline;
-        a {
-            font-size: 1.3rem;
-            color:$color-font;
-            &:hover {
-                color: $color-hover;
-            }
-        }
-        
-    }
-}
-
-
 .the_best_movie {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    @media screen and (max-width: 670px) {
+    @media screen and (max-width: map-get($breakpoints, max-value-best)) {
         display: block;
     }
     border: 0.2rem solid $color-border;

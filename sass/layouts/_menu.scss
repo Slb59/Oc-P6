@@ -1,0 +1,19 @@
+.menu ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media screen and (max-width: map-get($breakpoints, max-value-menu)) {
+        display: block;
+    }
+    align-content: center;
+    li {
+        display: inline;
+        a {
+            font-size: $fontsize-menu;
+            color:$color-font;
+            &:hover {
+                color: $color-hover;
+            }
+        }
+        
+    }
+}

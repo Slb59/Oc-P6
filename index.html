@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
-    <script defer src="main.js"></script>
+    <script defer src="js/main.js"></script>
     <title>JustStreamIt</title>
 </head>
 <body>
@@ -28,29 +28,46 @@
                 <button class="the_best_movie__data__play_btn">Plus d'infos</button>
             </div>
             <div class="the_best_movie__img">
-                <img id="best_movie_img" src="#" alt="Image du meilleur film"/>
+                <img id="best_movie_img" src="assets/placeholder-cinema.png" alt="Image du meilleur film">
             </div>
         </section>
         <section id="best_movies">
-            <h2>Les films les mieux notés</h2>
+            <div class="carousel">
+                <a class="left_button" onclick="">
+                    <img src="assets/flèche-left.png" alt="fleche">
+                </a>
+                <div class="movies_show">
+                    <div class="movie_elem_0"><img class="movie_image_0" src="#" alt="#"></div>
+                    <div class="movie_elem_1"><img class="movie_image_1" src="#" alt="#"></div>
+                    <div class="movie_elem_2"><img class="movie_image_2" src="#" alt="#"></div>
+                    <div class="movie_elem_3"><img class="movie_image_3" src="#" alt="#"></div>
+                    <div class="movie_elem_4"><img class="movie_image_4" src="#" alt="#"></div>
+                    <div class="movie_elem_5"><img class="movie_image_5" src="#" alt="#"></div>
+                    <div class="movie_elem_6"><img class="movie_image_6" src="#" alt="#"></div>
+                </div>
+                <a class="right_button" onclick="">
+                    <img src="assets/flèche-right.png" alt="fleche">
+                </a>
+            </div>
         </section>
-        <section id="categories"></section>
-        <section id="category_adventure">
-            <h2>Meilleurs films d'aventure</h2>
-            <!-- TODO: Afficher le carroussel -->
-        </section>
-        <section id="category_animation">
-            <h2>Meilleurs films d'animation'</h2>
-            <!-- TODO: Afficher le carroussel -->
-        </section>
-        <section id="category_biography">
-            <h2>Meilleurs films de biographie</h2>
-            <!-- TODO: Afficher le carroussel -->
+        <section id="categories">
+            <div id="category_adventure">
+                <h2>Meilleurs films d'aventure</h2>
+                <!-- TODO: Afficher le carroussel -->
+            </div>
+            <div id="category_animation">
+                <h2>Meilleurs films d'animation'</h2>
+                <!-- TODO: Afficher le carroussel -->
+            </div>
+            <div id="category_biography">
+                <h2>Meilleurs films de biographie</h2>
+                <!-- TODO: Afficher le carroussel -->
+            </div>
         </section>
     </main>
     <footer id="footer">
         <!-- TODO: centrer en plus petit -->
-        <img class="footer__logo" src="assets/logo.png"/>
+        <img class="footer__logo" src="assets/logo.png" alt="logo JustStreamIt">
     </footer>    
 </body>
 </html>

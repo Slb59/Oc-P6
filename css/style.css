@@ -11,6 +11,11 @@ html {
   min-height: 100vh;
 }
 
+h1 {
+  font-size: 2rem;
+  color: rgb(10, 9, 8);
+}
+
 header {
   background-color: rgba(125, 59, 32, 0.4);
   padding: 1rem;
@@ -32,11 +37,6 @@ footer .footer__logo {
   transform: translate(-50%);
 }
 
-h1 {
-  font-size: 2rem;
-  color: rgb(10, 9, 8);
-}
-
 .menu ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -44,7 +44,7 @@ h1 {
 }
 @media screen and (max-width: 730px) {
   .menu ul {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 .menu ul li {
