@@ -1,7 +1,7 @@
 
 @font-face {
   font-family: "Raleway-Light";
-  src: url("assets/Raleway-Light.ttf");
+  src: url("../assets/Raleway-Light.ttf");
 }
 html {
   background: rgb(125, 59, 32);
@@ -89,4 +89,26 @@ footer .footer__logo {
 }
 .the_best_movie__img {
   margin: 0 auto;
+}
+
+.caroussel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-content: center;
+}
+.caroussel .left_button {
+  visibility: hidden;
+  grid-column: 1;
+  margin: auto;
+}
+.caroussel .right_button {
+  grid-column: 3;
+  margin: auto;
+}
+.caroussel .category_best {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+  width: 743px;
 }/*# sourceMappingURL=style.css.map */

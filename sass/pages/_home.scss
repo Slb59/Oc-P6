@@ -29,6 +29,32 @@
     }
 }
 
+.caroussel {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+
+    .left_button {
+        visibility: hidden;
+        grid-column: 1;
+        margin:auto;
+    }
+
+    .right_button {
+        grid-column: 3;
+        margin: auto;
+    }
+
+    .category_best{
+        grid-column: 2;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-content: center;
+        width: calc($movie_width*4 + $movie_space_between*3);
+    }
+}
+
+
 
 
 
