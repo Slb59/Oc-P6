@@ -9,6 +9,8 @@ html {
   font-family: "Raleway-Light";
   color: rgb(10, 9, 8);
   min-height: 100vh;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -93,22 +95,39 @@ footer .footer__logo {
 
 .caroussel {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 100px 1fr 100px;
   align-content: center;
+  margin-top: 30px;
+  position: relative;
 }
 .caroussel .left_button {
   visibility: hidden;
   grid-column: 1;
   margin: auto;
 }
+.caroussel .left_button:hover {
+  cursor: pointer;
+  transition: 0.5s ease;
+  transform: scale(1.2);
+}
 .caroussel .right_button {
   grid-column: 3;
   margin: auto;
 }
+.caroussel .right_button:hover {
+  cursor: pointer;
+  transition: 0.5s ease;
+  transform: scale(1.2);
+}
 .caroussel .category_best {
   grid-column: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 5px;
   align-content: center;
   width: 743px;
+  overflow: auto;
+  overflow-x: hidden;
+  transition: 0.5 ease;
 }/*# sourceMappingURL=style.css.map */

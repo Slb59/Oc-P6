@@ -31,26 +31,43 @@
 
 .caroussel {
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 100px 1fr 100px;
     align-content: center;
+    margin-top: 30px;
+    position: relative;
 
     .left_button {
         visibility: hidden;
         grid-column: 1;
         margin:auto;
+        &:hover {
+            cursor : pointer;
+            transition: 0.5s ease;
+            transform: scale(1.2);
+        }
     }
 
     .right_button {
         grid-column: 3;
         margin: auto;
+        &:hover {
+            cursor : pointer;
+            transition: 0.5s ease;
+            transform: scale(1.2);
+        }
     }
 
     .category_best{
         grid-column: 2;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: auto;
+        grid-gap: $movie_space_between;
         align-content: center;
         width: calc($movie_width*4 + $movie_space_between*3);
+        overflow: auto;
+        overflow-x: hidden;
+        transition: 0.5 ease;
     }
 }
 
