@@ -22,73 +22,99 @@ function show_best_movie(){
 
 show_best_movie();
 
-function show_image(page, category, image_id, image_num) {
-    urlPage = BEST_MOVIES_URL + "&page=" + page
-    console.log(urlPage)
-    bestMovies = fetch_url(urlPage);
-    console.log(bestMovies)
-    bestMovies.then(value => {
-        bestMovies_data = fetch_url(value.results[image_id].url);
-        bestMovies_data.then(movie_data => {
-            let image_selector = ".category_" + category + " .movie_item_" + image_num
-            let img = document.createElement('img');
-            img.setAttribute('src',  movie_data.image_url);
-            img.setAttribute('alt', "image_" + image_num);
-            document.querySelector(image_selector).appendChild(img);
-        })
-    });
+class Caroussel {
+    constructor(category) {
+        this.category = category
+        this.position = 0
+        this.scrollWidth = 182 + 5; // Comment utiliser les variables css ?
+        this.containerToScroll = document.querySelector(".category_" + category)
+        this.leftButton = document.querySelector(".caroussel_" + category + " > .left_button")
+        this.rightButton = document.querySelector(".caroussel_" + category + " > .right_button")
+    }
+
+    load_image(page, image_id, image_num) {
+        let urlPage = BEST_MOVIES_URL + "&page=" + page
+        console.log(urlPage)
+        bestMovies = fetch_url(urlPage);
+        console.log(bestMovies)
+        bestMovies.then(value => {
+            let bestMovies_data = fetch_url(value.results[image_id].url);
+            bestMovies_data.then(movie_data => {
+                let image_selector = ".category_" + this.category + " .movie_item_" + image_num
+                let img = document.createElement('img');
+                img.setAttribute('src',  movie_data.image_url);
+                img.setAttribute('alt', "image_" + image_num);
+                document.querySelector(image_selector).appendChild(img);
+            })
+        });
+    }
+    
+    load_all_images() {
+        let image_num = 1;
+        for (let imagePos=0; imagePos <5; imagePos++) {
+        this.load_image(1, imagePos, image_num);
+        image_num++;
+        }
+        for (let imagePos=0; imagePos <2; imagePos++) {
+        this.load_image(2, imagePos, image_num);
+        image_num++;
+        }    
+    }
+
+    setButtonVisibiltity(){
+        console.log(this.position);
+        console.log(this.containerToScroll.scrollWidth);
+        console.log(this.containerToScroll.clientWidth);
+        console.log(this.containerToScroll.offsetWidth);
+        // let leftButton = document.getElementsByClassName('left_button')[carousselNum]
+        // let rightButton = document.getElementsByClassName('right_button')[carousselNum]
+        if (this.position === 0) {
+            this.leftButton.style.visibility = "hidden";
+        } else if (this.position > 0 && this.position + this.scrollWidth < this.containerToScroll.clientWidth) {
+            this.leftButton.style.visibility = "visible";
+            this.rightButton.style.visibility = "visible";
+        } else if (this.position + this.scrollWidth >= this.containerToScroll.clientWidth) {
+            this.rightButton.style.visibility = "hidden";
+        }
+    }
+
+    scrollTo(direction) {
+
+        console.log(this.category + "->" + direction);    
+        
+        // ?????????????????????????????????????????
+        // let head= document.querySelector('body');
+        // let movieWidth = getComputedStyle(head).getPropertyValue('--movie_width');
+        // console.log(movieWidth);
+      
+        
+        // scroll the container
+        if (direction === "left") {
+            this.containerToScroll.scroll({left: this.position-(this.scrollWidth), top:0, behavior: 'smooth'});
+            this.position  -= this.scrollWidth;
+        }
+        else if (direction === "right") {
+            console.log('vers la droite')
+            this.containerToScroll.scroll({left: this.position + (this.scrollWidth), top:0, behavior: 'smooth'});
+            this.position  += this.scrollWidth;
+        }
+        // set visibility of buttons
+        this.setButtonVisibiltity();
+
+    }
 }
 
+const carousselBest = new Caroussel("best");
+carousselBest.load_all_images();
+
+
+
 // const CAROUSSEL_LIST = ["best", "adventure", "animation", "biography"]
-const CAROUSSEL_LIST = ["best"]
-let carousselPositions = [0, 0, 0, 0]
-for (let category of CAROUSSEL_LIST) {
-    console.log(category)
-    let image_num = 1
-    for (let imagePos=0; imagePos <5; imagePos++) {
-        show_image(1, category, imagePos, image_num);
-        image_num++;
-    }
-    for (let imagePos=0; imagePos <2; imagePos++) {
-        show_image(2, category, imagePos, image_num);
-        image_num++
-    }    
-}
+// const CAROUSSEL_LIST = ["best"]
+// let carousselPositions = [0, 0, 0, 0]
 
 
 function scroll_caroussel(category, direction) {
-    let carousselNum = 0 // 0 for the best category    
-    console.log(category + "->" + direction)    
-    let containerToScroll = document.querySelector(".category_" + category)
-    // ?????????????????????????????????????????
-    let head= document.querySelector('body')
-    let movieWidth = getComputedStyle(head).getPropertyValue('--movie_width')
-    console.log(movieWidth)
-    let scrollWidth = 182 + 5
-    // scroll the container
-    if (direction === "left") {
-        containerToScroll.scroll({left: -(scrollWidth), top:0, behavior: 'smooth'})
-        carousselPositions[carousselNum]  -= scrollWidth
-    }
-    else if (direction === "right") {
-        containerToScroll.scroll({left: (scrollWidth), top:0, behavior: 'smooth'})
-        carousselPositions[carousselNum]  += scrollWidth
-    }
-    // set visibility of buttons
-    let carousselPos = carousselPositions[carousselNum]
-    console.log(carousselPos)
-    console.log(containerToScroll.scrollWidth)
-    console.log(containerToScroll.clientWidth)
-    console.log(containerToScroll.offsetWidth)
-    let leftButton = document.getElementsByClassName('left_button')[carousselNum]
-    let rightButton = document.getElementsByClassName('right_button')[carousselNum]
-    if (carousselPos === 0) {
-        leftButton.style.visibility = "hidden";
-    } else if (carousselPos > 0 && carousselPos < containerToScroll.scrollWidth) {
-        leftButton.style.visibility = "visible";
-        rightButton.style.visibility = "visible";
-    } else if (carousselPos === containerToScroll.scrollWidth) {
-        rightButton.style.visibility = "hidden";
-    }
+    if (category === "best") {carousselBest.scrollTo(direction);}    
 }
 
