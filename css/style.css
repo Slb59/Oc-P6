@@ -97,8 +97,16 @@ footer .footer__logo {
   display: grid;
   grid-template-columns: 100px 1fr 100px;
   align-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
   position: relative;
+}
+@media screen and (max-width: 970px) {
+  .caroussel {
+    display: block;
+  }
+}
+.caroussel h2 {
+  grid-column: 2;
 }
 .caroussel .left_button {
   visibility: hidden;
@@ -119,7 +127,7 @@ footer .footer__logo {
   transition: 0.5s ease;
   transform: scale(1.2);
 }
-.caroussel .category_best {
+.caroussel .category_movies {
   grid-column: 2;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -130,4 +138,5 @@ footer .footer__logo {
   overflow: auto;
   overflow-x: hidden;
   transition: 0.5 ease;
+  margin: auto;
 }/*# sourceMappingURL=style.css.map */

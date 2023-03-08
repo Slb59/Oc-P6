@@ -23,17 +23,19 @@ function show_best_movie(){
 show_best_movie();
 
 class Caroussel {
-    constructor(category) {
+    constructor(category, title) {
         this.category = category
+        this.title = title
         this.position = 0
         this.scrollWidth = 182 + 5; // Comment utiliser les variables css ?
+        this.container = document.querySelector(".caroussel_" + category)
         this.containerToScroll = document.querySelector(".category_" + category)
         this.leftButton = document.querySelector(".caroussel_" + category + " > .left_button")
         this.rightButton = document.querySelector(".caroussel_" + category + " > .right_button")
     }
 
     load_image(page, image_id, image_num) {
-        let urlPage = BEST_MOVIES_URL + "&page=" + page
+        let urlPage = BEST_MOVIES_URL + "&page=" + page + "&genre=" + this.category.replace('best','')
         console.log(urlPage)
         bestMovies = fetch_url(urlPage);
         console.log(bestMovies)
@@ -102,10 +104,57 @@ class Caroussel {
         this.setButtonVisibiltity();
 
     }
+
+    htmlGenerator() {
+        let htmlToAdd = "<h2>" + this.title + "</h2>"
+        htmlToAdd += "<a class=\"left_button\" onclick=\"scroll_caroussel('" + this.category + "', 'left')\">";
+        htmlToAdd += "<img src=\"assets/flèche-left.png\" alt=\"fleche\" width=\"100px\">";
+        htmlToAdd += "</a>";
+        htmlToAdd += "<div class=\"category_" + this.category + " category_movies\">";
+        htmlToAdd += "<div class=\"movie_item_1\"></div>";
+        htmlToAdd += "<div class=\"movie_item_2\"></div>";
+        htmlToAdd += "<div class=\"movie_item_3\"></div>";
+        htmlToAdd += "<div class=\"movie_item_4\"></div>";
+        htmlToAdd += "<div class=\"movie_item_5\"></div>";
+        htmlToAdd += "<div class=\"movie_item_6\"></div>";
+        htmlToAdd += "<div class=\"movie_item_7\"></div>";
+        htmlToAdd += "</div>";
+        htmlToAdd += "<a class=\"right_button\" onclick=\"scroll_caroussel('" + this.category + "', 'right')\">";
+        htmlToAdd += "<img src=\"assets/flèche-right.png\" alt=\"fleche\" width=\"100px\">";
+        htmlToAdd += "</a>";
+        this.container.innerHTML = htmlToAdd;
+        this.containerToScroll = document.querySelector(".category_" + this.category);
+        this.leftButton = document.querySelector(".caroussel_" + this.category + " > .left_button")
+        this.rightButton = document.querySelector(".caroussel_" + this.category + " > .right_button")
+    }
 }
 
-const carousselBest = new Caroussel("best");
-carousselBest.load_all_images();
+const CAROUSSEL_LIST = ["best", "adventure", "animation", "biography"]
+const CAROUSSEL_TITLES = [
+    "", 
+    "Les meilleurs films d'aventure",
+    "Les meilleurs films d'animation",
+    "Les meilleurs biographies"
+]
+
+let carousselList = []
+// const carousselList = [
+//     new Caroussel("best"), 
+//     new Caroussel("adventure"), 
+//     new Caroussel("animation"),
+//     new Caroussel("biography")
+// ]
+
+for (let i in CAROUSSEL_LIST) {
+    let aCaroussel = new Caroussel(CAROUSSEL_LIST[i], CAROUSSEL_TITLES[i]);
+    carousselList.push(aCaroussel);
+    aCaroussel.htmlGenerator();
+    aCaroussel.load_all_images();
+}
+
+// for (let aCaroussel of carousselList) {
+//     aCaroussel.load_all_images();
+// }
 
 
 
@@ -115,6 +164,9 @@ carousselBest.load_all_images();
 
 
 function scroll_caroussel(category, direction) {
-    if (category === "best") {carousselBest.scrollTo(direction);}    
+    if (category === "best") {carousselList[0].scrollTo(direction);}    
+    if (category === "adventure") {carousselList[1].scrollTo(direction);}
+    if (category === "animation") {carousselList[2].scrollTo(direction);}
+    if (category === "biography") {carousselList[3].scrollTo(direction);}
 }
 
