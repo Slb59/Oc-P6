@@ -100,11 +100,6 @@ footer .footer__logo {
   margin-top: 20px;
   position: relative;
 }
-@media screen and (max-width: 970px) {
-  .caroussel {
-    display: block;
-  }
-}
 .caroussel h2 {
   grid-column: 2;
 }
@@ -139,4 +134,14 @@ footer .footer__logo {
   overflow-x: hidden;
   transition: 0.5 ease;
   margin: auto;
+}
+@media screen and (max-width: 970px) {
+  .caroussel .category_movies {
+    width: 556px;
+  }
+}
+@media screen and (max-width: 776px) {
+  .caroussel .category_movies {
+    width: 369px;
+  }
 }/*# sourceMappingURL=style.css.map */

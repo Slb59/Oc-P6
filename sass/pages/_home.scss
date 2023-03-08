@@ -31,9 +31,6 @@
 
 .caroussel {
     display:grid;
-    @media screen and (max-width: map-get($breakpoints, max-value-caroussel)) {
-        display: block;
-    }
     grid-template-columns: 100px 1fr 100px;
     align-content: center;
     margin-top: 20px;
@@ -72,6 +69,12 @@
         grid-gap: $movie_space_between;
         align-content: center;
         width: calc($movie_width*4 + $movie_space_between*3);
+        @media screen and (max-width: map-get($breakpoints, max-value-4container)) {
+            width: calc($movie_width*3 + $movie_space_between*2);
+        }   
+        @media screen and (max-width: map-get($breakpoints, max-value-3container)) {
+            width: calc($movie_width*2 + $movie_space_between);
+        }      
         overflow: auto;
         overflow-x: hidden;
         transition: 0.5 ease;
