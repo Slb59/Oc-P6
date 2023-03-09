@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
+    <script defer src="js/caroussel.js"></script>
     <script defer src="js/main.js"></script>
     <title>JustStreamIt</title>
 </head>
@@ -25,7 +26,7 @@
             <div class="the_best_movie__data">
                 <h2 id="best_movie_title" class="the_best_movie__data__title">the best movie title</h2>
                 <p id="best_movie_summary" class="the_best_movie__data__summary">the best movie summary</p>
-                <button class="the_best_movie__data__play_btn">Plus d'infos</button>
+                <button id="play_btn" class="the_best_movie__data__play_btn">Plus d'infos</button>
             </div>
             <div class="the_best_movie__img">
                 <img id="best_movie_img" src="assets/placeholder-cinema.png" alt="Image du meilleur film">
@@ -44,5 +45,31 @@
         <!-- TODO: centrer en plus petit -->
         <img class="footer__logo" src="assets/logo.png" alt="logo JustStreamIt">
     </footer>    
+
+    <!-- The modal -->
+    <div class = "movie_modal">
+        <div class = "movie_modal__window">
+            <div class = "movie_modal__window__left">
+                <div class="movie_title"></div>
+                <div class="movie_img"></div>
+            </div>
+            <div class = "movie_modal__window__right">           
+                <div class="movie_description"></div>
+                <div class="movie_genre"></div>
+                <div class="movie_published"></div>
+                <div class="movie_rated"></div>
+                <div class="movie_imdb"></div>
+                <div class="movie_directors"></div>
+                <div class="movie_actors"></div>
+                <div class="movie_duration"></div>
+                <div class="movie_countries"></div>
+                <div class="movie_income"></div>
+            </div> 
+            <div class = "movie_modal__window__right"> 
+                <!-- + bouton pour fermer la fenêtre -->
+            </div>            
+        </div>
+    </div>
+    
 </body>
 </html>

@@ -82,6 +82,34 @@
     }
 }
 
+.movie_modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: $color-background;
+    background: linear-gradient(150deg, $color-background 0%, $color-background-gradient1 30%, $color-background-gradient2 100%);
+
+    &__window {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        background-color: $color-modal;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid $color-modal-font-border;
+        color: $color-modal-font-border;
+        width: 80%;
+        
+        &__left {
+            grid-column: 1;
+            align-content: center;
+        }
+    }
+}
 
 
 
