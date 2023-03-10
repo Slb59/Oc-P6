@@ -31,6 +31,9 @@ class Caroussel {
                 img.setAttribute('alt', "image_" + image_num);
                 // TODO : revoir le fonctionnement de appendChild
                 document.querySelector(image_selector).appendChild(img);
+                document.querySelector(image_selector).addEventListener(
+                    "click", function()  {showModal(movie_data);}
+                    );         
             })
         });
     }

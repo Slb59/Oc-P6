@@ -51,17 +51,21 @@ function scroll_caroussel(category, direction) {
     if (category === "biography") {carousselList[3].scrollTo(direction);}
 }
 
+let modal = document.querySelector(".movie_modal")
+
 function showModal(movie_data) {
     console.log(movie_data);
     // http://localhost:8000/api/v1/titles/499549
-    document.querySelector(".movie_modal").style.display = "block";
+    
+    modal.style.display = "block";
     document.querySelector(".movie_title").innerHTML = "<h2>" + movie_data.title + "</h2>";
     htmlToAdd = "<img src=\"" + movie_data.image_url + "\" alt=\"image\">";
     document.querySelector(".movie_img").innerHTML = htmlToAdd;
     document.querySelector(".movie_description").innerHTML = "<p>" + movie_data.description + "</p>";
     document.querySelector(".movie_genre").innerHTML = "<p>Genres: " + movie_data.genres + "</p>";
     // TODO : show the french date format
-    document.querySelector(".movie_published").innerHTML = "<p>Sortie: " + movie_data.date_published + "</p>";
+    const d = new Date(movie_data.date_published);
+    document.querySelector(".movie_published").innerHTML = "<p>Sortie: " +d.toLocaleDateString("fr") + "</p>";
     // ou vote ? ou avg_vote ?
     document.querySelector(".movie_rated").innerHTML = "<p>Note: " + movie_data.rated + "</p>";
     document.querySelector(".movie_imdb").innerHTML = "<p>Score imdb: " + movie_data.imdb_score + "</p>";
@@ -75,6 +79,17 @@ function showModal(movie_data) {
         document.querySelector(".movie_income").innerHTML = "<p>Recettes non connues</p>";
     } else {    
         document.querySelector(".movie_income").innerHTML = 
-            "<p>Recettes: " + movie_data.worldwide_gross_income.toString() + movie_data.budget_currency + "</p>";
+            "<p>Recettes: " + movie_data.worldwide_gross_income.toString() + " " + movie_data.budget_currency + "</p>";
     }
+    // close button
+    document.getElementsByClassName("movie_modal__window__close__triangle-left")[0].addEventListener(
+        "click", function()  {modal.style.display = "none";}
+        );   
 }
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }

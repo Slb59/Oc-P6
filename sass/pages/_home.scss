@@ -16,12 +16,18 @@
         &__play_btn {
             background-color: $color-btn-background;
             color : $color-btn;
+            margin-top: 30px;
+            padding: 10px;
             width: 7rem;
             border-radius: 1rem;
-            border: 1px solid;
+            border: 1px solid $color-btn;
             position: absolute;
             left: 50%;
             transform: translate(-50%);
+
+            &:hover, &:focus {
+                cursor: pointer;
+            }
         }
     }
     &__img {
@@ -61,7 +67,7 @@
         }
     }
 
-    .category_movies{
+    .category_movies {
         grid-column: 2;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
@@ -80,6 +86,24 @@
         transition: 0.5 ease;
         margin: auto;
     }
+
+    @for $i from 1 through 7 { 
+        .movie_item_#{$i}:hover {
+            cursor: -webkit-zoom-in;
+            cursor: zoom-in;
+        }
+    }
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+  
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
 }
 
 .movie_modal {
@@ -99,17 +123,46 @@
         grid-template-columns: 1fr 2fr;
         background-color: $color-modal;
         margin: 15% auto;
-        padding: 20px;
+        padding: 30px;
         border: 1px solid $color-modal-font-border;
         color: $color-modal-font-border;
         width: 80%;
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 1s;
+        animation-name: animatetop;
+        animation-duration: 1s;
         
         &__left {
             grid-column: 1;
             align-content: center;
         }
+
+        /* The Close Button */
+        &__close {
+            grid-column: 1;            
+            align-content:center;
+            &__triangle-left {
+                width: 0;
+                height: 0;
+                border-top: 25px solid transparent;
+                border-right: 50px solid $color-btn-background;
+                border-bottom: 25px solid transparent;
+
+                &:hover, &:focus {
+                    cursor: pointer;
+                }
+            }
+
+            
+        }
     }
+
+
+  
+
 }
+
+
 
 
 

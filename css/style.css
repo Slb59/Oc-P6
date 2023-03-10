@@ -82,12 +82,17 @@ footer .footer__logo {
 .the_best_movie__data__play_btn {
   background-color: rgb(182, 14, 14);
   color: rgb(233, 206, 206);
+  margin-top: 30px;
+  padding: 10px;
   width: 7rem;
   border-radius: 1rem;
-  border: 1px solid;
+  border: 1px solid rgb(233, 206, 206);
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+}
+.the_best_movie__data__play_btn:hover, .the_best_movie__data__play_btn:focus {
+  cursor: pointer;
 }
 .the_best_movie__img {
   margin: 0 auto;
@@ -145,7 +150,39 @@ footer .footer__logo {
     width: 369px;
   }
 }
+.caroussel .movie_item_1:hover {
+  cursor: zoom-in;
+}
+.caroussel .movie_item_2:hover {
+  cursor: zoom-in;
+}
+.caroussel .movie_item_3:hover {
+  cursor: zoom-in;
+}
+.caroussel .movie_item_4:hover {
+  cursor: zoom-in;
+}
+.caroussel .movie_item_5:hover {
+  cursor: zoom-in;
+}
+.caroussel .movie_item_6:hover {
+  cursor: zoom-in;
+}
+.caroussel .movie_item_7:hover {
+  cursor: zoom-in;
+}
 
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
 .movie_modal {
   display: none;
   position: fixed;
@@ -163,12 +200,31 @@ footer .footer__logo {
   grid-template-columns: 1fr 2fr;
   background-color: rgb(10, 9, 8);
   margin: 15% auto;
-  padding: 20px;
+  padding: 30px;
   border: 1px solid rgb(126, 134, 134);
   color: rgb(126, 134, 134);
   width: 80%;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 1s;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  /* The Close Button */
 }
 .movie_modal__window__left {
   grid-column: 1;
   align-content: center;
+}
+.movie_modal__window__close {
+  grid-column: 1;
+  align-content: center;
+}
+.movie_modal__window__close__triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-right: 50px solid rgb(182, 14, 14);
+  border-bottom: 25px solid transparent;
+}
+.movie_modal__window__close__triangle-left:hover, .movie_modal__window__close__triangle-left:focus {
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
