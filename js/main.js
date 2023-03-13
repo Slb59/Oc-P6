@@ -43,12 +43,9 @@ for (let i in CAROUSSEL_LIST) {
     aCaroussel.load_all_images();
 }
 
-// TODO : look for indice of category in CAROUSSEL_LIST
 function scroll_caroussel(category, direction) {
-    if (category === "best") {carousselList[0].scrollTo(direction);}    
-    if (category === "adventure") {carousselList[1].scrollTo(direction);}
-    if (category === "animation") {carousselList[2].scrollTo(direction);}
-    if (category === "biography") {carousselList[3].scrollTo(direction);}
+    let i = CAROUSSEL_LIST.indexOf(category)
+    carousselList[i].scrollTo(direction);    
 }
 
 let modal = document.querySelector(".movie_modal")
@@ -63,7 +60,6 @@ function showModal(movie_data) {
     document.querySelector(".movie_img").innerHTML = htmlToAdd;
     document.querySelector(".movie_description").innerHTML = "<p>" + movie_data.description + "</p>";
     document.querySelector(".movie_genre").innerHTML = "<p>Genres: " + movie_data.genres + "</p>";
-    // TODO : show the french date format
     const d = new Date(movie_data.date_published);
     document.querySelector(".movie_published").innerHTML = "<p>Sortie: " +d.toLocaleDateString("fr") + "</p>";
     // ou vote ? ou avg_vote ?

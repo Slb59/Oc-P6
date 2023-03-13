@@ -19,9 +19,7 @@ class Caroussel {
 
     load_image(page, image_id, image_num) {
         let urlPage = BEST_MOVIES_URL + "&page=" + page + "&genre=" + this.category.replace('best','')
-        console.log(urlPage)
         bestMovies = fetchUrl(urlPage);
-        console.log(bestMovies)
         bestMovies.then(value => {
             let bestMovies_data = fetchUrl(value.results[image_id].url);
             bestMovies_data.then(movie_data => {
