@@ -65,14 +65,12 @@ class Caroussel {
         if (this.position === 0) {
             this.leftButton.style.visibility = "hidden";
             this.rightButton.style.visibility = "visible";
-        } 
-        if (this.position > 0 && this.position + this.scrollWidth <= maxScrollWidth) {
+        } else if (this.position > 0 && this.position + this.scrollWidth <= maxScrollWidth) {
             this.leftButton.style.visibility = "visible";
             this.rightButton.style.visibility = "visible";
-        } 
-        if (this.position + this.scrollWidth >= maxScrollWidth) {
-            this.leftButton.style.visibility = "visible";
+        } else if (this.position + this.scrollWidth >= maxScrollWidth) {
             this.rightButton.style.visibility = "hidden";
+            this.leftButton.style.visibility = "visible";
         }
     }
 
