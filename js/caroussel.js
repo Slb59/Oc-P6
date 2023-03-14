@@ -4,13 +4,12 @@ class Caroussel {
         this.title = title
         this.position = 0
 
-        this.scrollWidth = 182 + 5; // TODO : Comment utiliser les variables css ?
-        // ?????????????????????????????????????????
-        let head= document.querySelector('body');
-        let movieWidth = getComputedStyle(document.documentElement).getPropertyValue('movie_width');
-        console.log("Constructeur caroussel " + category)
-        console.log("movieWidth= " + movieWidth);
-        // window.getComputedStyle(document.documentElement).getPropertyValue('--color-font-general');
+        
+        let movieWidth = getComputedStyle(document.documentElement).getPropertyValue('--movie-width');
+        movieWidth = Number(movieWidth.substring(0,movieWidth.length-2))
+        let movie_space_between = getComputedStyle(document.documentElement).getPropertyValue('--movie-space-between');
+        movie_space_between = Number(movie_space_between.substring(0,movie_space_between.length-2))
+        this.scrollWidth = movieWidth + movie_space_between; 
 
         // containers are refreshed by htmlGenerator
         this.container = document.querySelector(".caroussel_" + category)
@@ -69,7 +68,10 @@ class Caroussel {
 
     scrollTo(direction) {
         // all images must be loaded
-        if (this.containerToScroll.scrollWidth > 182*7) {
+        console.log(this.scrollWidth)
+        console.log(this.scrollWidth*6)
+        console.log(this.containerToScroll.scrollWidth)
+        if (this.containerToScroll.scrollWidth > this.scrollWidth*6) { 
             // scroll the container
             if (direction === "left") {
                 this.containerToScroll.scroll({left: this.position-(this.scrollWidth), top:0, behavior: 'smooth'});

@@ -20,6 +20,7 @@ h1 {
 
 :root {
   --movie-width: 182px;
+  --movie-space-between: 5px;
 }
 
 header {
