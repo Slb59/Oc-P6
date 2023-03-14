@@ -3,15 +3,16 @@ class Caroussel {
         this.category = category
         this.title = title
         this.position = 0
-        this.nb_images = 0
 
         this.scrollWidth = 182 + 5; // TODO : Comment utiliser les variables css ?
         // ?????????????????????????????????????????
-        // let head= document.querySelector('body');
-        // let movieWidth = getComputedStyle(head).getPropertyValue('--movie_width');
-        // console.log(movieWidth);
+        let head= document.querySelector('body');
+        let movieWidth = window.getComputedStyle(document.documentElement).getPropertyValue('movie_width');
+        console.log("Constructeur caroussel " + category)
+        console.log("movieWidth= " + movieWidth);
+        // window.getComputedStyle(document.documentElement).getPropertyValue('--color-font-general');
 
-        // container are refreshed by htmlGenerator
+        // containers are refreshed by htmlGenerator
         this.container = document.querySelector(".caroussel_" + category)
         this.containerToScroll = document.querySelector(".category_" + category)
         this.leftButton = document.querySelector(".caroussel_" + category + " > .left_button")
@@ -28,7 +29,7 @@ class Caroussel {
                 let img = document.createElement('img');
                 img.setAttribute('src',  movie_data.image_url);
                 img.setAttribute('alt', "image_" + image_num);
-                // TODO : revoir le fonctionnement de appendChild
+                // add img to image_selector
                 document.querySelector(image_selector).appendChild(img);
                 document.querySelector(image_selector).addEventListener(
                     "click", function()  {showModal(movie_data);}
