@@ -83,7 +83,7 @@
         }      
         overflow: auto;
         overflow-x: hidden;
-        transition: 0.5 ease;
+        transition: ease;
         margin: auto;
     }
 
@@ -127,8 +127,6 @@
         border: 1px solid $color-modal-font-border;
         color: $color-modal-font-border;
         width: 80%;
-        -webkit-animation-name: animatetop;
-        -webkit-animation-duration: 1s;
         animation-name: animatetop;
         animation-duration: 1s;
         

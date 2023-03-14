@@ -15,3 +15,7 @@ h1 {
     font-size: $fontsize-title;
     color: $color-font;
 }
+
+:root{
+    --movie-width: #{$movie_width};    
+    }

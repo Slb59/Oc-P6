@@ -7,7 +7,7 @@ class Caroussel {
         this.scrollWidth = 182 + 5; // TODO : Comment utiliser les variables css ?
         // ?????????????????????????????????????????
         let head= document.querySelector('body');
-        let movieWidth = window.getComputedStyle(document.documentElement).getPropertyValue('movie_width');
+        let movieWidth = getComputedStyle(document.documentElement).getPropertyValue('movie_width');
         console.log("Constructeur caroussel " + category)
         console.log("movieWidth= " + movieWidth);
         // window.getComputedStyle(document.documentElement).getPropertyValue('--color-font-general');
@@ -54,15 +54,7 @@ class Caroussel {
     }
 
     setButtonVisibiltity() {
-        console.log(this.position);
-        console.log(this.containerToScroll.scrollWidth);
-        console.log(this.containerToScroll.clientWidth);
-        console.log(this.containerToScroll.offsetWidth);
-        // let leftButton = document.getElementsByClassName('left_button')[carousselNum]
-        // let rightButton = document.getElementsByClassName('right_button')[carousselNum]
         let maxScrollWidth = this.containerToScroll.scrollWidth - this.containerToScroll.clientWidth
-        console.log(this.position + this.scrollWidth)
-        console.log(maxScrollWidth)
         if (this.position === 0) {
             this.leftButton.style.visibility = "hidden";
             this.rightButton.style.visibility = "visible";
@@ -76,7 +68,8 @@ class Caroussel {
     }
 
     scrollTo(direction) {
-        if (this.nb_images >= 7) {
+        // all images must be loaded
+        if (this.containerToScroll.scrollWidth > 182*7) {
             // scroll the container
             if (direction === "left") {
                 this.containerToScroll.scroll({left: this.position-(this.scrollWidth), top:0, behavior: 'smooth'});
