@@ -3,6 +3,7 @@ class Caroussel {
         this.category = category
         this.title = title
         this.position = 0
+        this.nb_images = 0
 
         this.scrollWidth = 182 + 5; // TODO : Comment utiliser les variables css ?
         // ?????????????????????????????????????????
@@ -41,11 +42,13 @@ class Caroussel {
         for (let imagePos=0; imagePos <5; imagePos++) {
             this.load_image(1, imagePos, image_num);
             image_num++;
+            this.nb_images++;
         }
         // Read the next page ?
         for (let imagePos=0; imagePos <2; imagePos++) {
             this.load_image(2, imagePos, image_num);
             image_num++;
+            this.nb_images++;
         }    
     }
 
@@ -61,28 +64,33 @@ class Caroussel {
         console.log(maxScrollWidth)
         if (this.position === 0) {
             this.leftButton.style.visibility = "hidden";
-        } else if (this.position > 0 && this.position + this.scrollWidth <= maxScrollWidth) {
+            this.rightButton.style.visibility = "visible";
+        } 
+        if (this.position > 0 && this.position + this.scrollWidth <= maxScrollWidth) {
             this.leftButton.style.visibility = "visible";
             this.rightButton.style.visibility = "visible";
-        } else if (this.position + this.scrollWidth >= maxScrollWidth) {
+        } 
+        if (this.position + this.scrollWidth >= maxScrollWidth) {
+            this.leftButton.style.visibility = "visible";
             this.rightButton.style.visibility = "hidden";
         }
     }
 
     scrollTo(direction) {
-        // scroll the container
-        if (direction === "left") {
-            this.containerToScroll.scroll({left: this.position-(this.scrollWidth), top:0, behavior: 'smooth'});
-            this.position  -= this.scrollWidth;
+        if (this.nb_images >= 7) {
+            // scroll the container
+            if (direction === "left") {
+                this.containerToScroll.scroll({left: this.position-(this.scrollWidth), top:0, behavior: 'smooth'});
+                this.position  -= this.scrollWidth;
+            }
+            else if (direction === "right") {
+                console.log('vers la droite')
+                this.containerToScroll.scroll({left: this.position + (this.scrollWidth), top:0, behavior: 'smooth'});
+                this.position  += this.scrollWidth;
+            }
+            // set visibility of buttons
+            this.setButtonVisibiltity();
         }
-        else if (direction === "right") {
-            console.log('vers la droite')
-            this.containerToScroll.scroll({left: this.position + (this.scrollWidth), top:0, behavior: 'smooth'});
-            this.position  += this.scrollWidth;
-        }
-        // set visibility of buttons
-        this.setButtonVisibiltity();
-
     }
 
     htmlGenerator() {
