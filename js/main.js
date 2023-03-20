@@ -1,11 +1,13 @@
 const URL_API = "http://localhost:8000/api/v1/titles/"
 const BEST_MOVIES_URL = URL_API + "?sort_by=-imdb_score"
 
-// TODO : may be converted to async function ??
-function fetchUrl(url) {
-    return fetch(url)
-    .then(response => response.json())
-    .catch(err => console.log("Problem with fetch:" + err));
+async function fetchUrl(url) {
+    try {
+        const response = await fetch(url);
+        return await response.json();
+    } catch (err) {
+        return console.log("Problem with fetch:" + err);
+    }
 }
 
 function show_best_movie(){
