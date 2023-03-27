@@ -27,6 +27,6 @@ Un carroussel donne la possibilité de naviguer dans chacune des listes
 
 ## Installation
 
-* ??? testé sur plusieurs navigateurs
+* Testé sur les navigateurs Edge, Chrome et Firefox
 * L'API tourne par défaut sur le port 8000
 * Ouvrez le fichier index.html en local depuis votre navigateur favori
